@@ -6,9 +6,12 @@ Return None if the matrix product does not exist.
 
 As with math, assume that indices are in [row][column] format, so each inner list is a row.
 """
-def matrix_multiply(arr0, arr1):
-	pass
+import numpy as np
 
+def matrix_multiply(arr0, arr1):
+    answer = np.matmul(arr0, arr1, out = None)
+    answer.any()
+    return answer
 """
 nth_largest_element
 
@@ -16,7 +19,11 @@ Given an input list `arr`, and index `n`, return the nth largest element.
 Avoid using built-in sorting methods.
 """
 def nth_largest_element(arr, n):
-	pass
+    if (n == 1):
+        return max(arr)
+    else:
+        maximum = max(arr) 
+        return(arr(n - 1, [x for x in arr if x != maximum]))
 
 """
 reverse_block
@@ -32,7 +39,7 @@ Example:
 
 """
 def reverse_block(arr, n):
-	pass
+      pass
 
 """
 subset_sum
@@ -53,7 +60,12 @@ Example 2:
 		False
 """
 def subset_sum(arr, target):
-	pass
+    if target is 0:
+        return True
+    elif len(arr) is 0:
+        return False
+    else:
+        return subset_sum(arr[1:], (target - arr[0])) or subset_sum(arr[1:], target)
 
 """
 spiral_matrix
