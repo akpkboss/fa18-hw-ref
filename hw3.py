@@ -6,54 +6,51 @@ Return None if the matrix product does not exist.
 
 As with math, assume that indices are in [row][column] format, so each inner list is a row.
 """
-import random
 
 def matrix_multiply(arr0, arr1):
-    if (len(arr0[0]) !=  len(arr1)):
-        return None
-    answer = []
-    for i in range(0,len(arr0)):
-        
-    
-    
-    
-    return answer
+	if len(arr0[0]) != len(arr1):
+		return None
+	answer = []
+	for i in range(0,len(arr0)):
+		answer.append([])
+		for j in range(0,len(arr1[0])):
+			answer[i].append(0)
+	for i in range(0,len(arr0)):
+		for j in range(0,len(arr1[0])):
+			for k in range(0,len(arr1)):
+				answer[i][j] += arr0[i][k] * arr1[k][j]
+	return answer
 """
 nth_largest_element
 
 Given an input list `arr`, and index `n`, return the nth largest element.
 Avoid using built-in sorting methods.
 """
+def heapify(arr, n, i): 
+    largest = i  
+    l = 2 * i + 1  
+    r = 2 * i + 2 
+    if l < n and arr[i] < arr[l]: 
+        largest = l 
+    if r < n and arr[largest] < arr[r]: 
+        largest = r 
+    if largest != i: 
+        arr[i],arr[largest] = arr[largest],arr[i]
+        heapify(arr, n, largest) 
+  
+def heapSort(arr): 
+    n = len(arr) 
+    for i in range(n, -1, -1): 
+        heapify(arr, n, i)  
+    for i in range(n-1, 0, -1): 
+        arr[i], arr[0] = arr[0], arr[i]
+        heapify(arr, i, 0) 
+
 def nth_largest_element(arr, n):
-    return quickSelect(arr, 0, len(arr) - 1, n)
-
-
-def quickSelect(n, start, end, k):
-    if start == end:
-        return n[start]
-
-    i = start
-    j = end
-    pivot = (n[start] + n[end]) // 2
-
-    while i <= j:
-        while i <= j and n[i] < pivot:
-            i += 1
-        while i <= j and n[j] > pivot:
-            j -= 1
-        if i <=j:
-            n[i], n[j] = n[j], n[i]
-            i += 1
-            j -= 1
-
-    if start + k - 1 <= j:
-        return quickSelect(n, start, j, k)
-
-    if start + k - 1 >= i:
-        return quickSelect(n, i, end, k - (i - start))
-
-    return n[j + 1]
-
+	if n >= len(arr):
+		return None
+	heapSort(arr)
+	return arr[len(arr)-n]
 """
 reverse_block
 
@@ -80,7 +77,7 @@ def reverse_block(arr, n):
     finale = []
     
     for i in range(len(answer)):
-        for j in range(len(answer[1])):
+        for j in range(len(answer[i])):
             finale.append(answer[i][j])
     return finale
 
@@ -157,10 +154,4 @@ def spiral_matrix(arr):
         k += 1
     return lis
 
-#print(spiral_matrix([[ 1, 2, 3, 4, 5],
-#		 [ 6, 7, 8, 9,10],
-#		 [11,12,13,14,15],
-#		 [16,17,18,19,20],
-#		 [21,22,23,24,25]]))
-print(nth_largest_element(([-788, 227, 22, -204, 569, -650, -692, -319, 378, -297]), 9))
 
