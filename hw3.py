@@ -10,7 +10,6 @@ import numpy as np
 
 def matrix_multiply(arr0, arr1):
     answer = np.matmul(arr0, arr1, out = None)
-    answer.any()
     return answer
 """
 nth_largest_element
@@ -39,7 +38,21 @@ Example:
 
 """
 def reverse_block(arr, n):
-      pass
+    answer = [] 
+    iterate = 0
+    while (i + n) < len(arr):
+        answer.append(arr[i:i + n])
+        iterate +=  n
+    answer.append(arr[i:])
+    for every in final:
+        every.reverse()
+        
+    finale = []
+    
+    for i in range(len(answer)):
+        for j in range(len(answer[1])):
+            finale.append(answer[i][j])
+    return finale
 
 """
 subset_sum
