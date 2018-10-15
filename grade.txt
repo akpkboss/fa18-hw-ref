@@ -1,6 +1,6 @@
-Grade report for repo {}
+Grade report for repo fa18-hws-akpkboss
 
-Points earned: fa18-hws-akpkboss
+Points earned: 0
 ------------------------------------------------------------
 
 Detailed test results:
