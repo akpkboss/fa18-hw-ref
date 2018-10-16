@@ -1,10 +1,82 @@
 Grade report for repo fa18-hws-akpkboss
 
-Total points earned: 0
+Points earned: 0
+------------------------------------------------------------
 
 Detailed test results:
 
-No grade data is available. Review any messages below.
+tester_alive_people
+At least one test in this test class failed.
+    _given                        Failed
+    disjoint                      Failed
+    large                         Failed
+    medium                        Failed
+    more                          Failed
+    not_in_place                  Failed
+    overlap_all                   Failed
+    overlap_edges                 Failed
+    overlap_multi                 Failed
 
-Additional messages:
-No file available for grading.
+tester_alphabet_finder
+At least one test in this test class failed.
+    _given                        Failed
+    case_insensitivity            Failed
+    long                          Failed
+    more                          Failed
+
+tester_happy_numbers
+At least one test in this test class failed.
+    _given                     Exception
+    efficiency                 Exception
+    medium                     Exception
+    more                       Exception
+    more_large                 Exception
+    small                      Exception
+
+tester_longest_unique_subarray
+At least one test in this test class failed.
+    _given                     Exception
+    large                      Exception
+    medium                     Exception
+    more                       Exception
+    not_in_place               Exception
+    small                      Exception
+    tiebreaker                 Exception
+
+tester_most_common_char
+At least one test in this test class failed.
+    _given                     Exception
+    large                      Exception
+    more                       Exception
+    ties                       Exception
+
+tester_string_my_one_true_love
+At least one test in this test class failed.
+    _given                        Failed
+    empty                         Failed
+    freq_many                     Failed
+    freq_one                      Failed
+    large                         Failed
+    medium                        Failed
+    more                          Failed
+
+tester_three_sum
+At least one test in this test class failed.
+    _given                     Exception
+    large                      Exception
+    more                       Exception
+    no_triplets                Exception
+    not_in_place               Exception
+    repeated                   Exception
+
+tester_zero_sum_subarray
+At least one test in this test class failed.
+    _given                     Exception
+    large                         Failed
+    medium                        Failed
+    more                          Failed
+    not_in_place                  Failed
+    tiebreaker                 Exception
+    vacuous                       Failed
+
+
