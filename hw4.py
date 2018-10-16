@@ -12,10 +12,10 @@ most_common_char
 
 Given an input string s, return the most common character in s.
 """
-import collections
+from collections import Counter
+from itertools import chain
 def most_common_char(s):
-    a = collections.Counter(s).mostcommon(1)
-    return a[0]
+    return Counter(chain(*s.casefold().split())).most_common(1)[0][0]
     
     
 
@@ -59,9 +59,55 @@ Example:
 	Return:
 		[1, 6]
 """
-def longest_unique_subarray(arr):
-	pass
-
+def longest_unique_subarray(string):
+    pass
+    n = len(string) 
+    cur_len = 1        # To store the lenght of current substring 
+    max_len = 1        # To store the result 
+    prev_index = 0    # To store the previous index 
+    i = 0
+  
+    # Initialize the visited array as -1, -1 is used to indicate 
+    # that character has not been visited yet. 
+    visited = [-1] * NO_OF_CHARS 
+  
+    # Mark first character as visited by storing the index of 
+    # first character in visited array. 
+    visited[ord(string[0])] = 0
+  
+    # Start from the second character. First character is already 
+    # processed (cur_len and max_len are initialized as 1, and 
+    # visited[str[0]] is set 
+    for i in range(1,n): 
+        prev_index = visited[ord(string[i])] 
+  
+        # If the currentt character is not present in the already 
+        # processed substring or it is not part of the current NRCS, 
+        # then do cur_len++ 
+        if prev_index == -1 or (i - cur_len > prev_index): 
+            cur_len+=1
+  
+        # If the current character is present in currently considered 
+        # NRCS, then update NRCS to start from the next character of 
+        # previous instance. 
+        else: 
+            # Also, when we are changing the NRCS, we should also 
+            # check whether length of the previous NRCS was greater 
+            # than max_len or not. 
+            if cur_len > max_len: 
+                max_len = cur_len 
+  
+            cur_len = i - prev_index 
+  
+        # update the index of current character 
+        visited[ord(string[i])] = i 
+  
+    # Compare the length of last NRCS with max_len and update 
+    # max_len if needed 
+    if cur_len > max_len: 
+        max_len = cur_len 
+  
+    return max_len 
 
 """
 string_my_one_true_love
@@ -144,7 +190,16 @@ Example:
 		]
 """
 def three_sum(arr, t):
-	pass
+    n = len(arr)
+    arr = []
+    if (n < 3):
+        return
+    for i in range(0, n - 2):
+        for j in range (i + 1, n - 1):
+            for k in range (j + 1, n):
+                if ((arr[i] + arr[j] + arr[k]) == t):
+                    arr.append(arr[i], arr[j], arr[k])
+    return arr
 
 
 """
@@ -167,11 +222,11 @@ Example 2:
 """
 def happy_numbers(n):
     total = [1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70, 79, 82, 86, 91, 94, 97, 100, 103, 109, 129, 130, 133, 139, 167, 176, 188, 190, 192, 193, 203, 208, 219, 226, 230, 236, 239, 262, 263, 280, 291, 293, 301, 302, 310, 313, 319, 320, 326, 329, 331, 338, 356, 362, 365, 367, 368, 376, 379, 383, 386, 391, 392, 397, 404, 409, 440, 446, 464, 469, 478, 487, 490, 496, 536, 556, 563, 565, 566, 608, 617, 622, 623, 632, 635, 637, 638, 644, 649, 653, 655, 656, 665, 671, 673, 680, 683, 694, 700, 709, 716, 736, 739, 748, 761, 763, 784, 790, 793, 802, 806, 818, 820, 833, 836, 847, 860, 863, 874, 881, 888, 899, 901, 904, 907, 910, 912, 913, 921, 923, 931, 932, 937, 940, 946, 964, 970, 973, 989, 998, 1000]
-    answer = []
-    for i in total:
-        if (total[i] < n):
-            answer.append(total[i])
-    return answer
+    count = 0;
+    for i in range (0, len(total), 1):
+        if (total[i] <= n):
+            count += 1
+    return count
         
 
 
@@ -204,6 +259,15 @@ Example 2:
 		[1, 2]
 """
 def zero_sum_subarray(arr):
-    pass 
-
+    sum = 0; 
+    for x in range (0, len(arr), 1):
+        for i in range(len(arr), x, -1):
+            for loop in range(x,i, 1):
+                sum += arr[loop] 
+                if(sum == 0):
+                    return arr[x,i]
+            sum = 0;
+#for loop to set the start
+    #for loop to set the end
+        #for loop that actually goes from start to the end
 
