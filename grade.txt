@@ -1,6 +1,6 @@
 Grade report for repo fa18-hws-akpkboss
 
-Points earned: 0
+Points earned: 9
 ------------------------------------------------------------
 
 Detailed test results:
@@ -19,19 +19,19 @@ At least one test in this test class failed.
 
 tester_alphabet_finder
 At least one test in this test class failed.
-    _given                        Failed
+    _given                            ok
     case_insensitivity            Failed
     long                          Failed
     more                          Failed
 
 tester_happy_numbers
 At least one test in this test class failed.
-    _given                     Exception
-    efficiency                 Exception
-    medium                     Exception
-    more                       Exception
-    more_large                 Exception
-    small                      Exception
+    _given                            ok
+    efficiency                        ok
+    medium                        Failed
+    more                              ok
+    more_large                    Failed
+    small                             ok
 
 tester_longest_unique_subarray
 At least one test in this test class failed.
@@ -44,21 +44,20 @@ At least one test in this test class failed.
     tiebreaker                 Exception
 
 tester_most_common_char
-At least one test in this test class failed.
-    _given                     Exception
-    large                      Exception
-    more                       Exception
-    ties                       Exception
+    _given                            ok
+    large                             ok
+    more                              ok
+    ties                              ok
 
 tester_string_my_one_true_love
 At least one test in this test class failed.
-    _given                        Failed
-    empty                         Failed
-    freq_many                     Failed
-    freq_one                      Failed
-    large                         Failed
-    medium                        Failed
-    more                          Failed
+    _given                     Exception
+    empty                      Exception
+    freq_many                  Exception
+    freq_one                   Exception
+    large                      Exception
+    medium                     Exception
+    more                       Exception
 
 tester_three_sum
 At least one test in this test class failed.
@@ -73,10 +72,10 @@ tester_zero_sum_subarray
 At least one test in this test class failed.
     _given                     Exception
     large                         Failed
-    medium                        Failed
-    more                          Failed
-    not_in_place                  Failed
+    medium                     Exception
+    more                       Exception
+    not_in_place               Exception
     tiebreaker                 Exception
-    vacuous                       Failed
+    vacuous                    Exception
 
 
