@@ -33,15 +33,31 @@ Example 1:
 		"qwertyuiopASDFGHJKLzxcvbnm insensitive paella"
 	Return:
 		"qwertyuiopASDFGHJKLzxcvbnm"
-
+]
+    
 Example 2:
 	Argument:
 		"aardvarks are cool!"
 	Return:
 		None
 """
+import string
 def alphabet_finder(s):
-	pass
+    letters_used = -1
+    s = s.replace(" ","")
+    print(s)
+    d = dict.fromkeys(string.ascii_letters, 0)
+    for letter_index in range (0, len(s)):
+        for the_key, the_value in d.items():
+          if (s[letter_index] == the_key):
+            d[the_key] += 1
+            letters_used += 1
+        if (letters_used == 26):
+          print(s[:(letter_index)])
+          print(d)
+          return s[:(letter_index)]
+    return None
+                
 
 
 """
@@ -60,6 +76,12 @@ Example:
 		[1, 6]
 """
 def longest_unique_subarray(string):
+    
+ 
+
+
+
+
     pass
     n = len(string) 
     cur_len = 1        # To store the lenght of current substring 
@@ -149,7 +171,27 @@ Example 3:
 		False
 """
 def string_my_one_true_love(s):
-	pass
+    values = {}
+    compare_v = 0
+    did = False
+    for letter in s:
+        for the_key, the_value in values.items():
+            if (the_key == s[letter]) :
+                the_value += 1
+                did = True
+        if (did == False):
+            #add the key to the dict and set the value equal to one
+            values.update({letter : 0})
+        else:
+            did = False
+            
+    compare_v = values.get(0)
+    
+    for the_key, the_value in values.items():
+        if (the_value != compare_v or the_value - 1 != compare_v or the_value + 1 != compare_v):
+            return False
+            
+    
 
 
 """
