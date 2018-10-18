@@ -140,32 +140,31 @@ def string_my_one_true_love(s):
   #for i in range (0, len(alpha) - 1):
   #set the values for the dictionary
   for key, value in alpha.items():
-    print(key)
     for letter in range (0, len(s)):
       if (s[letter] == key):
         counter += 1
         d1 = {s[letter]: counter}
         alpha.update(d1)
     counter = 0
-  print(alpha)
+
 
   #check if its valid
   
   for key, value in alpha.items():
     lst.append(value)
     
-  print(lst)
+
   compareV = lst[0]
-  print(compareV)
+
   for values in lst:
     if (values + 1 == compareV or values - 1 == compareV or value == compareV or value == 1):
       final += 1
-  print(final)
+
   if final == len(lst):
-    print("true")
+
     return True
   else:
-    print("false")
+
     return False
 
 
