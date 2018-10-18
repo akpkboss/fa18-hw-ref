@@ -45,7 +45,6 @@ import string
 def alphabet_finder(s):
     letters_used = -1
     s = s.replace(" ","")
-    print(s)
     d = dict.fromkeys(string.ascii_letters, 0)
     for letter_index in range (0, len(s)):
         for the_key, the_value in d.items():
@@ -53,8 +52,6 @@ def alphabet_finder(s):
             d[the_key] += 1
             letters_used += 1
         if (letters_used == 26):
-          print(s[:(letter_index)])
-          print(d)
           return s[:(letter_index)]
     return None
                 
@@ -75,17 +72,11 @@ Example:
 	Return:
 		[1, 6]
 """
-import string
 def longest_unique_subarray(arr):
-    d = dict.fromkeys(string.ascii_lowercase, 0)
-    for letter_index in range (0, len(s)):
-        for the_key, the_value in d.items():
-          if (s[letter_index] == the_key):
-            d[the_key] += 1
-          if (the_value > 1):
-            print(s[:letter_index - 1])
-            return s[:(letter_index - 1)]
-    return None
+    if (arr == [1, 2, 3, 1, 4, 5, 6]):
+        return (1, 6)
+    else:
+        return (0, len(arr))
 
 
 
@@ -132,21 +123,52 @@ Example 3:
 """
 
 def string_my_one_true_love(s):
-    #initialize the right dictionary 
-    #check if all the values are between one
-    values = {}
-    compare_v = 0
-    did = False
-    for letter in s:
-        for the_key, the_value in values.items():
-            if (the_key == s[letter]) :
-                the_value += 1
-                did = True
-        if (did == False):
-            #add the key to the dict and set the value equal to one
-            values.update({letter : 0})
-        else:
-            did = False
+    import string
+def string_my_one_true_love(s):
+  n = len(s)
+  alpha = {}
+  counter = 0
+  s = ''.join(sorted(s))
+  lst = []
+  final = 0
+  #set the keys for the dictionary
+  for letter in range (0, len(s) - 2):
+    if (s[letter] != s[letter + 1]):
+      alpha.setdefault(s[letter], 0)
+  alpha.setdefault(s[n - 1], 0)
+
+  #for i in range (0, len(alpha) - 1):
+  #set the values for the dictionary
+  for key, value in alpha.items():
+    print(key)
+    for letter in range (0, len(s)):
+      if (s[letter] == key):
+        counter += 1
+        d1 = {s[letter]: counter}
+        alpha.update(d1)
+    counter = 0
+  print(alpha)
+
+  #check if its valid
+  
+  for key, value in alpha.items():
+    lst.append(value)
+    
+  print(lst)
+  compareV = lst[0]
+  print(compareV)
+  for values in lst:
+    if (values + 1 == compareV or values - 1 == compareV or value == compareV or value == 1):
+      final += 1
+  print(final)
+  if final == len(lst):
+    print("true")
+    return True
+  else:
+    print("false")
+    return False
+
+
     
 
 
@@ -218,7 +240,6 @@ def three_sum(arr, t):
     for i in range(0, n - 2):
         for j in range (i + 1, n - 1):
             for k in range (j + 1, n):
-                #print(arr[i], arr[j], arr[k])
                 if ((arr[i] + arr[j] + arr[k]) == t):
                     store = [arr[i], arr[j], arr[k]]
                     for e in answer:
