@@ -75,61 +75,21 @@ Example:
 	Return:
 		[1, 6]
 """
-def longest_unique_subarray(string):
-    
- 
+import string
+def longest_unique_subarray(arr):
+    d = dict.fromkeys(string.ascii_lowercase, 0)
+    for letter_index in range (0, len(s)):
+        for the_key, the_value in d.items():
+          if (s[letter_index] == the_key):
+            d[the_key] += 1
+          if (the_value > 1):
+            print(s[:letter_index - 1])
+            return s[:(letter_index - 1)]
+    return None
 
 
 
 
-    pass
-    n = len(string) 
-    cur_len = 1        # To store the lenght of current substring 
-    max_len = 1        # To store the result 
-    prev_index = 0    # To store the previous index 
-    i = 0
-  
-    # Initialize the visited array as -1, -1 is used to indicate 
-    # that character has not been visited yet. 
-    visited = [-1] * NO_OF_CHARS 
-  
-    # Mark first character as visited by storing the index of 
-    # first character in visited array. 
-    visited[ord(string[0])] = 0
-  
-    # Start from the second character. First character is already 
-    # processed (cur_len and max_len are initialized as 1, and 
-    # visited[str[0]] is set 
-    for i in range(1,n): 
-        prev_index = visited[ord(string[i])] 
-  
-        # If the currentt character is not present in the already 
-        # processed substring or it is not part of the current NRCS, 
-        # then do cur_len++ 
-        if prev_index == -1 or (i - cur_len > prev_index): 
-            cur_len+=1
-  
-        # If the current character is present in currently considered 
-        # NRCS, then update NRCS to start from the next character of 
-        # previous instance. 
-        else: 
-            # Also, when we are changing the NRCS, we should also 
-            # check whether length of the previous NRCS was greater 
-            # than max_len or not. 
-            if cur_len > max_len: 
-                max_len = cur_len 
-  
-            cur_len = i - prev_index 
-  
-        # update the index of current character 
-        visited[ord(string[i])] = i 
-  
-    # Compare the length of last NRCS with max_len and update 
-    # max_len if needed 
-    if cur_len > max_len: 
-        max_len = cur_len 
-  
-    return max_len 
 
 """
 string_my_one_true_love
@@ -170,7 +130,10 @@ Example 3:
 	Return:
 		False
 """
+
 def string_my_one_true_love(s):
+    #initialize the right dictionary 
+    #check if all the values are between one
     values = {}
     compare_v = 0
     did = False
@@ -184,13 +147,6 @@ def string_my_one_true_love(s):
             values.update({letter : 0})
         else:
             did = False
-            
-    compare_v = values.get(0)
-    
-    for the_key, the_value in values.items():
-        if (the_value != compare_v or the_value - 1 != compare_v or the_value + 1 != compare_v):
-            return False
-            
     
 
 
@@ -209,9 +165,31 @@ Example:
 		1961
 """
 def alive_people(data):
-	pass
-
-
+    num = 0
+    birth = []
+    death = []
+    for i in data:
+        birth.append(i[0])
+        death.append(i[0] + i[1])
+        num += 1
+    birth.sort()
+    death.sort()
+    a = 1
+    b = 0
+    alive = 1 
+    total = 1
+    answer = birth[0]
+    while a < num and b < num:
+        if birth[a] <= death[b]:
+            alive += 1
+            if alive > total:
+                total = alive
+                answer = birth[a]
+            a += 1
+        else:
+            alive -= 1
+            b += 1
+    return answer
 """
 three_sum
 
@@ -233,15 +211,25 @@ Example:
 """
 def three_sum(arr, t):
     n = len(arr)
-    arr = []
+    answer = []
+    bad_count = 0
     if (n < 3):
-        return
+        return None
     for i in range(0, n - 2):
         for j in range (i + 1, n - 1):
             for k in range (j + 1, n):
+                #print(arr[i], arr[j], arr[k])
                 if ((arr[i] + arr[j] + arr[k]) == t):
-                    arr.append(arr[i], arr[j], arr[k])
-    return arr
+                    store = [arr[i], arr[j], arr[k]]
+                    for e in answer:
+                      e.sort()
+                      store.sort()
+                      if (e == store):
+                        bad_count += 1
+                    if bad_count == 0:
+                      answer.append(store)       
+                bad_count = 0
+    return answer
 
 
 """
@@ -300,16 +288,25 @@ Example 2:
 	Return:
 		[1, 2]
 """
+
+"""
+for loop to set the start
+    for loop to set the end
+      """
 def zero_sum_subarray(arr):
-    sum = 0; 
-    for x in range (0, len(arr), 1):
-        for i in range(len(arr), x, -1):
-            for loop in range(x,i, 1):
-                sum += arr[loop] 
-                if(sum == 0):
-                    return arr[x,i]
-            sum = 0;
-#for loop to set the start
-    #for loop to set the end
-        #for loop that actually goes from start to the end
+  n = len(arr)
+  store = []
+  sum = 0;
+  for start in range(0, n):
+    for end in range (n, start, -1):
+      for k in range (start, end, 1):
+        sum += arr[k]
+        store.append(arr[k])
+        if (sum == 0):
+          if (store == [0]):
+            return [0,1]
+          return [start, k]
+      store = []
+      sum = 0
+  return None
 
