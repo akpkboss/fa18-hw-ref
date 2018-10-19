@@ -1,6 +1,6 @@
 Grade report for repo fa18-hws-akpkboss
 
-Points earned: 29
+Points earned: 31
 ------------------------------------------------------------
 
 Detailed test results:
@@ -50,9 +50,9 @@ tester_most_common_char
 
 tester_string_my_one_true_love
 At least one test in this test class failed.
-    _given                        Failed
+    _given                            ok
     empty                      Exception
-    freq_many                     Failed
+    freq_many                         ok
     freq_one                      Failed
     large                         Failed
     medium                        Failed
