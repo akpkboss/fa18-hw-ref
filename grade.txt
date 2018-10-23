@@ -1,80 +1,56 @@
 Grade report for repo fa18-hws-akpkboss
 
-Points earned: 31
+Points earned: 4
 ------------------------------------------------------------
 
 Detailed test results:
 
-tester_alive_people
-    _given                            ok
-    disjoint                          ok
-    large                             ok
-    medium                            ok
-    more                              ok
-    not_in_place                      ok
-    overlap_all                       ok
-    overlap_edges                     ok
-    overlap_multi                     ok
-
-tester_alphabet_finder
+tester_add_position
 At least one test in this test class failed.
-    _given                            ok
-    case_insensitivity            Failed
-    long                          Failed
+    _given                     Exception
+    add_head                   Exception
+    edges                      Exception
+    head_longer                Exception
+    in_place                   Exception
+    invalid_add                   Failed
+
+tester_find_cycle
+At least one test in this test class failed.
+    _given                        Failed
+    long_list                     Failed
     more                          Failed
+    same_data                         ok
 
-tester_happy_numbers
+tester_find_merge_point
 At least one test in this test class failed.
-    _given                            ok
-    efficiency                        ok
-    medium                        Failed
-    more                              ok
-    more_large                    Failed
-    small                             ok
-
-tester_longest_unique_subarray
-At least one test in this test class failed.
-    _given                            ok
-    large                         Failed
-    medium                        Failed
+    _given                        Failed
+    larger                        Failed
     more                          Failed
-    not_in_place                      ok
-    small                         Failed
-    tiebreaker                    Failed
+    not_merged                        ok
+    same_data                         ok
 
-tester_most_common_char
-    _given                            ok
-    large                             ok
-    more                              ok
-    ties                              ok
-
-tester_string_my_one_true_love
+tester_merge
 At least one test in this test class failed.
-    _given                            ok
-    empty                      Exception
-    freq_many                         ok
-    freq_one                      Failed
+    alternating                   Failed
+    given                      Exception
     large                         Failed
-    medium                        Failed
-    more                              ok
+    mixed                         Failed
+    no_overlap                    Failed
 
-tester_three_sum
+tester_remove_position
 At least one test in this test class failed.
-    _given                            ok
-    large                         Failed
-    more                              ok
-    no_triplets                       ok
-    not_in_place                      ok
-    repeated                          ok
-
-tester_zero_sum_subarray
-At least one test in this test class failed.
-    _given                            ok
-    large                         Failed
-    medium                        Failed
+    _given                     Exception
+    _remove_head               Exception
+    invalid                       Failed
+    larger                        Failed
     more                          Failed
-    not_in_place                      ok
-    tiebreaker                    Failed
     vacuous                           ok
+
+tester_reverse_list
+At least one test in this test class failed.
+    edge_case                     Failed
+    given                      Exception
+    larger                        Failed
+    more                          Failed
 
 
