@@ -59,16 +59,28 @@ head is the refernce to the first node, data & position of the node to actually 
 """
 
 def add_position(head, data, position):
-    print(head, data, position)
-    if head == None:
-        return head
-    count = 0
-    while head:
-        if (count == position):
-            Node(data, head.next_node)
-        count += 1
-        head = head.next_node
-
+    current = head
+    previous = None
+    found = False
+    countPosition = 0 #counter for where we are in relation to where we are suppoed to be
+    while not found:
+        if (current != None):
+            if (countPosition == position):
+                new_node = Node(data)
+                if (previous != None):
+                    new_node.next_node = previous.next_node
+                    previous.next_node  = new_node
+                else:
+                    new_node.next_node = head
+                    head = new_node
+                found = True
+            else:
+                previous = current
+                current = current.next_node
+                countPosition += 1;
+        else:
+            #rip there is no solution
+            break
     return head
 
 """
@@ -90,16 +102,16 @@ Example:
 		a -> b -> d -> e
 """
 def remove_position(head, position):
-    if head == None:
-        return head
-    count = 0
-    while head:
-        if (count == position):
-            head.next_node = None
-        count += 1
-        head = head.next_node
+    #uhhhh zero clue what other edge cases to catch here.....
+    temp = head
+    if position == 0:
+        return temp.next_node
 
-    return head
+    while position - 1 > 0:
+        head = head.next_node
+        position -= 1
+    head.next_node = head.next_node.next_node
+    return temp
 
 
 """
@@ -123,8 +135,27 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    
-	pass
+    if head_a is None or head_b is None:
+        return None
+    counter = 0;
+    A = head_a
+    B = head_b
+
+    while A is not B:
+        
+        if A is None: 
+            A = head_b 
+        else:
+            A.next_node
+         
+        if B is None:
+            B = head_a
+        else:
+            B.next_node
+        counter += 1;
+        if counter > 10000:
+            return None
+    return A 
 
 """
 Given the head of a linked list, determines whether or not there
@@ -196,5 +227,5 @@ def merge_lists(head_a, head_b):
             cur.next_node = head_b
             head_b = head_b.next_node
         cur = cur.next_node
-    cur.next_node = head_a or head_b # add non-empty list
+    cur.next_node = head_a or head_b 
     return newList.next_node
