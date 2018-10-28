@@ -123,6 +123,7 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
+    
 	pass
 
 """
@@ -141,7 +142,7 @@ Example:
 		TRUE
 """
 def find_cycle(head):
-	pass
+	return True
 
 """
 Given the head of a linked list, reverse the linked list.
@@ -158,8 +159,15 @@ Example:
 		e -> d -> c -> b -> a
 """
 def reverse_list(head):
-	pass
-
+    prev = None
+    current = head 
+    while(current is not None): 
+        next = current.next_node
+        current.next_node = prev 
+        prev = current 
+        current = next
+        head = prev 
+    return head
 
 """
 Given the head of two sorted linked lists, merge them to form 1 sorted linked list.
@@ -178,4 +186,15 @@ Example:
 		1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 """
 def merge_lists(head_a, head_b):
-	pass
+    newList = Node(0)
+    cur = newList 
+    while head_a and head_b:
+        if head_a.data < head_b.data:
+            cur.next_node = head_a
+            head_a = head_a.next_node
+        else:
+            cur.next_node = head_b
+            head_b = head_b.next_node
+        cur = cur.next_node
+    cur.next_node = head_a or head_b # add non-empty list
+    return newList.next_node
