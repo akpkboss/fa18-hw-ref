@@ -40,12 +40,12 @@ Input:
     head - the head of the linked list.
     data - the item to add to the head of the linked list.
     position - position to insert
-    
-Output: 
+
+Output:
     Return the head of the resulting linked list
 
 Example:
-    Input: 
+    Input:
     	a -> c -> d -> e, 'b', 1
     Output:
     	a -> b -> c -> d -> e
@@ -55,15 +55,25 @@ Example 2:
 		b -> c -> d -> e, 'a', 0
 	Output:
 		a -> b -> c -> d -> e
-
+head is the refernce to the first node, data & position of the node to actually insert
 """
 
 def add_position(head, data, position):
-    pass
+    print(head, data, position)
+    if head == None:
+        return head
+    count = 0
+    while head:
+        if (count == position):
+            Node(data, head.next_node)
+        count += 1
+        head = head.next_node
+
+    return head
 
 """
 Given the head of a linked list and a position, remove the node at the given position.
-Note: the head is at position 0. 
+Note: the head is at position 0.
 
 If the remove index is invalid (too small or too large) simply return the head of the orignal linked list.
 
@@ -80,7 +90,16 @@ Example:
 		a -> b -> d -> e
 """
 def remove_position(head, position):
-	pass
+    if head == None:
+        return head
+    count = 0
+    while head:
+        if (count == position):
+            head.next_node = None
+        count += 1
+        head = head.next_node
+
+    return head
 
 
 """
@@ -92,7 +111,7 @@ Input:
 output:
 	the data of the merge node
 Example:
-Input:	
+Input:
 	a -> b -> c -> d, f -> c -> d
 Output:
 	'c'
@@ -112,7 +131,7 @@ is a cycle in the linked list.
 
 Input:
     head - the head of the linked list.
-    
+
 Output:
     (bool) whether or not there is a cycle in the linked list.
 Example:
