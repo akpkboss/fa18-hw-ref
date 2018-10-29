@@ -177,8 +177,15 @@ Example:
 		TRUE
 """
 def find_cycle(head):
-	return True
-
+    try:
+        slow = head
+        fast = head.next_node
+        while slow is not fast:
+            slow = slow.next_node
+            fast = fast.next_node.next_node
+            return True
+    except:
+        return False
 """
 Given the head of a linked list, reverse the linked list.
 
