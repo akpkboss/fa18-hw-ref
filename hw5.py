@@ -103,6 +103,20 @@ Example:
 """
 def remove_position(head, position):
     #uhhhh zero clue what other edge cases to catch here.....
+    
+    if head.next_node == None:
+        return head
+    count = 0
+    store = head
+            
+        
+    while store.next_node is not None:
+        count += 1
+        store = store.next_node
+        
+    if position > count:
+        return head
+    
     temp = head
     if position == 0:
         return temp.next_node
@@ -135,27 +149,17 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    if head_a is None or head_b is None:
+    if head_a == None or head_b == None:
         return None
-    counter = 0;
-    A = head_a
-    B = head_b
 
-    while A is not B:
-        
-        if A is None: 
-            A = head_b 
-        else:
-            A.next_node
-         
-        if B is None:
-            B = head_a
-        else:
-            B.next_node
-        counter += 1;
-        if counter > 10000:
-            return None
-    return A 
+    A_pointer = head_a
+    B_pointer = head_b
+
+    while A_pointer != B_pointer:
+        A_pointer = head_b if A_pointer == None else A_pointer.next_node
+        B_pointer = head_a if B_pointer == None else B_pointer.next_node
+
+    return 
 
 """
 Given the head of a linked list, determines whether or not there
