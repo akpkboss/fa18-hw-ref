@@ -149,17 +149,14 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    if head_a == None or head_b == None:
-        return None
-
-    A_pointer = head_a
-    B_pointer = head_b
-
-    while A_pointer != B_pointer:
-        A_pointer = head_b if A_pointer == None else A_pointer.next_node
-        B_pointer = head_a if B_pointer == None else B_pointer.next_node
-
-    return 
+    p = head_a
+    while p is not None:
+        q = head_b
+        while q is not None:
+            if p == q:
+                    return p.data
+            q = q.next_node  
+        p = p.next_node
 
 """
 Given the head of a linked list, determines whether or not there
