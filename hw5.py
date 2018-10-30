@@ -64,7 +64,7 @@ def add_position(head, data, position):
     
     ##edges case test
     #if it askes for a node at the end
-    #   then retrun a node with a pointer that points to "None"
+    #   then return a node with a pointer that points to "None"
     current = head
     previous = None
     found = False
@@ -159,7 +159,9 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    #this function is too slow
+    #this function is too slow 
+    #need O(n) non recursive complexity to pass.... i dont know how that possible unless 
+    #the merging nodes have to be in teh exact same index for both linked lists
     first = head_a
     while first is not None:
         second = head_b
