@@ -122,8 +122,7 @@ Example 3:
 		False
 """
 
-def string_my_one_true_love(s):
-    import string
+
 def string_my_one_true_love(s):
   n = len(s)
   alpha = {}

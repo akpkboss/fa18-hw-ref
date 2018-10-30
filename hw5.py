@@ -1,4 +1,7 @@
+"""
+Im going to link all the resources I use so that I do not get accused of cheating again
 
+"""
 """
 Class for linked list node.
 """
@@ -59,6 +62,11 @@ head is the refernce to the first node, data & position of the node to actually 
 """
 
 def add_position(head, data, position):
+    # i think this is what the edge case is....
+    if (head == None and position == 0):
+        return Node(data, position)
+    
+    
     current = head
     previous = None
     found = False
@@ -103,12 +111,13 @@ Example:
 """
 def remove_position(head, position):
     #uhhhh zero clue what other edge cases to catch here.....
-    
-    if head.next_node == None:
+    if head == None:
         return head
+    if position == 0:
+        head.next_node
+        
     count = 0
     store = head
-            
         
     while store.next_node is not None:
         count += 1
@@ -117,6 +126,7 @@ def remove_position(head, position):
     if position > count:
         return head
     
+    ## done checking the edge cases?
     temp = head
     if position == 0:
         return temp.next_node
@@ -175,11 +185,12 @@ Example:
 """
 def find_cycle(head):
     try:
-        slow = head
-        fast = head.next_node
-        while slow is not fast:
-            slow = slow.next_node
-            fast = fast.next_node.next_node
+        one = head
+        two = head.next_node
+        while one is not two:
+            one = one.next_node
+            two = two.next_node.next_node
+        if (one is two):
             return True
     except:
         return False

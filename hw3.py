@@ -10,11 +10,13 @@ As with math, assume that indices are in [row][column] format, so each inner lis
 def matrix_multiply(arr0, arr1):
 	if len(arr0[0]) != len(arr1):
 		return None
+    
 	answer = []
 	for i in range(0,len(arr0)):
 		answer.append([])
 		for j in range(0,len(arr1[0])):
 			answer[i].append(0)
+            
 	for i in range(0,len(arr0)):
 		for j in range(0,len(arr1[0])):
 			for k in range(0,len(arr1)):
