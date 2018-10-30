@@ -159,14 +159,15 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    p = head_a
-    while p is not None:
-        q = head_b
-        while q is not None:
-            if p == q:
-                    return p.data
-            q = q.next_node  
-        p = p.next_node
+    #this function is too slow
+    first = head_a
+    while first is not None:
+        second = head_b
+        while second is not None:
+            if first == second:
+                    return first.data
+            second = second.next_node  
+        first = first.next_node
 
 """
 Given the head of a linked list, determines whether or not there
@@ -209,14 +210,14 @@ Example:
 		e -> d -> c -> b -> a
 """
 def reverse_list(head):
-    prev = None
+    previous = None
     current = head 
     while(current is not None): 
         next = current.next_node
-        current.next_node = prev 
-        prev = current 
+        current.next_node = previous 
+        previous = current 
         current = next
-        head = prev 
+        head = previous
     return head
 
 """
@@ -236,15 +237,15 @@ Example:
 		1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 """
 def merge_lists(head_a, head_b):
-    newList = Node(0)
-    cur = newList 
+    new = Node(0)
+    current = new
     while head_a and head_b:
         if head_a.data < head_b.data:
-            cur.next_node = head_a
+            current.next_node = head_a
             head_a = head_a.next_node
         else:
-            cur.next_node = head_b
+            current.next_node = head_b
             head_b = head_b.next_node
-        cur = cur.next_node
-    cur.next_node = head_a or head_b 
-    return newList.next_node
+        current = current.next_node
+    current.next_node = head_a or head_b 
+    return new.next_node
