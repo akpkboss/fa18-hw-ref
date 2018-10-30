@@ -1,8 +1,4 @@
 """
-Im going to link all the resources I use so that I do not get accused of cheating again
-
-"""
-"""
 Class for linked list node.
 """
 class Node(object):
@@ -66,7 +62,9 @@ def add_position(head, data, position):
     if (head == None and position == 0):
         return Node(data, position)
     
-    
+    ##edges case test
+    #if it askes for a node at the end
+    #   then retrun a node with a pointer that points to "None"
     current = head
     previous = None
     found = False
@@ -75,7 +73,9 @@ def add_position(head, data, position):
         if (current != None):
             if (countPosition == position):
                 new_node = Node(data)
-                if (previous != None):
+                if head.next_node == None: #this should catch the edges case?
+                    new_node.next_node == None
+                elif (previous != None):
                     new_node.next_node = previous.next_node
                     previous.next_node  = new_node
                 else:
