@@ -1,6 +1,6 @@
 Grade report for repo fa18-hws-akpkboss
 
-Points earned: 23
+Points earned: 28
 ------------------------------------------------------------
 
 Detailed test results:
@@ -15,11 +15,10 @@ At least one test in this test class failed.
     invalid_add                       ok
 
 tester_find_cycle
-At least one test in this test class failed.
     _given                            ok
-    long_list                     Failed
-    more                          Failed
-    same_data                     Failed
+    long_list                         ok
+    more                              ok
+    same_data                         ok
 
 tester_find_merge_point
 At least one test in this test class failed.
@@ -37,13 +36,12 @@ tester_merge
     no_overlap                        ok
 
 tester_remove_position
-At least one test in this test class failed.
     _given                            ok
-    _remove_head                  Failed
+    _remove_head                      ok
     invalid                           ok
     larger                            ok
     more                              ok
-    vacuous                    Exception
+    vacuous                           ok
 
 tester_reverse_list
     edge_case                         ok
