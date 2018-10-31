@@ -63,18 +63,16 @@ def add_position(head, data, position):
         return Node(data, position)
     
     ##edges case test
-    #if it askes for a node at the end
-    #   then return a node with a pointer that points to "None"
     current = head
     previous = None
     found = False
-    countPosition = 0 #counter for where we are in relation to where we are suppoed to be
+    countPosition = 0 
     while not found:
         if (current != None):
             if (countPosition == position):
                 new_node = Node(data)
-                if head.next_node == None: #this should catch the edges case?
-                    new_node.next_node == None
+                if head.next_node == None: 
+                    new_node.next_node = None
                 elif (previous != None):
                     new_node.next_node = previous.next_node
                     previous.next_node  = new_node
@@ -110,7 +108,6 @@ Example:
 		a -> b -> d -> e
 """
 def remove_position(head, position):
-    #uhhhh zero clue what other edge cases to catch here.....
     if head == None:
         return head
     if position == 0:
@@ -119,6 +116,9 @@ def remove_position(head, position):
     count = 0
     store = head
         
+    
+    
+    
     while store.next_node is not None:
         count += 1
         store = store.next_node
@@ -126,10 +126,16 @@ def remove_position(head, position):
     if position > count:
         return head
     
-    ## done checking the edge cases?
+    
+    
+    
     temp = head
     if position == 0:
         return temp.next_node
+
+
+
+
 
     while position - 1 > 0:
         head = head.next_node
@@ -159,16 +165,18 @@ Output:
 	None
 """
 def find_merge_point(head_a, head_b):
-    #this function is too slow 
     #need O(n) non recursive complexity to pass.... i dont know how that possible unless 
-    #the merging nodes have to be in teh exact same index for both linked lists
+    #the merging nodes have to be in the exact same index for both linked lists
     first = head_a
+    
     while first is not None:
         second = head_b
         while second is not None:
             if first == second:
                     return first.data
-            second = second.next_node  
+                
+            second = second.next_node 
+            
         first = first.next_node
 
 """
@@ -220,6 +228,7 @@ def reverse_list(head):
         previous = current 
         current = next
         head = previous
+        
     return head
 
 """
@@ -241,13 +250,17 @@ Example:
 def merge_lists(head_a, head_b):
     new = Node(0)
     current = new
+    
     while head_a and head_b:
         if head_a.data < head_b.data:
             current.next_node = head_a
             head_a = head_a.next_node
+            
         else:
             current.next_node = head_b
             head_b = head_b.next_node
+            
         current = current.next_node
+        
     current.next_node = head_a or head_b 
     return new.next_node
