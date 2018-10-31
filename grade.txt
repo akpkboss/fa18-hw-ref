@@ -9,7 +9,7 @@ tester_add_position
 At least one test in this test class failed.
     _given                            ok
     add_head                          ok
-    edges                      Exception
+    edges                         Failed
     head_longer                       ok
     in_place                          ok
     invalid_add                       ok
