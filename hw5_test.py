@@ -9,11 +9,11 @@ LOCAL_TIMEOUT = 10
 class tester_add_position(unittest.TestCase):
 	def test__given(self):
 		#add_position(head, data, position)
-		
+
 		a = Node(2, Node(3, Node(4, Node(6))))
 		a = add_position(a, 5, 3)
 		self.assertEqual(a.next_node.next_node.next_node.data, 5)
-		
+
 		a = add_position(a, 1, 0)
 		self.assertEqual(a.data, 1)
 
@@ -29,7 +29,7 @@ class tester_remove_position(unittest.TestCase):
 	def test__given(self):
 		a = Node(2, Node(3, Node(4)))
 		a = remove_position(a, 1)
-		self.assertEqual(a.next_node.data, 4)
+		selfi.assertEqual(a.next_node.data, 4)
 
 		a = Node(2, Node(3, Node(4)))
 		a = remove_position(a, 0)
@@ -37,7 +37,7 @@ class tester_remove_position(unittest.TestCase):
 
 	def test_vacuous_given(self):
 		#if head is none
-		self.assertIsNone(None, 1)	
+		self.assertIsNone(None, 1)
 
 
 class tester_merge(unittest.TestCase):
@@ -63,38 +63,38 @@ class tester_reverse_list(unittest.TestCase):
 
 
 		self.assertIsNone(reverse_list(None))
-	
+
 
 
 
 class tester_find_merge_point(unittest.TestCase):
-	
+
 	def test__given(self):
 		a = Node(2, Node(6, Node(-8)))
 		a1 = Node(3, a)
 		a2 = Node(5, a)
-		
+
 		self.assertEqual(find_merge_point(a1, a2), 2)
 
 		a3 = Node(6)
 		self.assertIsNone(find_merge_point(a3, a2))
-	
+
 
 class tester_find_cycle(unittest.TestCase):
-	
+
 	def test__given(self):
 		node_a = Node(1)
 		node_b = Node(2)
 		node_c = Node(3)
-		
+
 		node_a.next_node = node_b
 		node_b.next_node = node_c
-		
+
 		# create cycle between node_b and node_b
 		node_c.next_node = node_b
 
 		self.assertTrue(find_cycle(node_a))
-	
+
 
 
 
@@ -125,12 +125,11 @@ class ReplaceStd(object):
 	def __exit__(self, type, value, traceback):
 		sys.stdout.close()
 		#sys.stderr.close()
-		
+
 		sys.stdout = self.stdout
 		#sys.stderr = self.stderr
 
 if __name__ == "__main__":
-	
+
 	with ReplaceStd():
 		unittest.main(module=__name__, buffer=True, exit=False)
-	
